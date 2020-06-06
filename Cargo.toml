@@ -1,0 +1,33 @@
+[package]
+authors = ["Kenan Sulayman <kenan@sly.mn>"]
+edition = "2018"
+name = "int19h"
+version = "0.1.0"
+
+[dependencies]
+futures = "0.1.26"
+lazy_static = "1.3.0"
+regex = "1.1.6"
+rspotify = "0.6.0"
+telegram-bot = "0.6.0"
+tokio-core = "0.1.17"
+reqwest = "=0.9.17"
+
+[profile]
+
+[profile.dev]
+codegen-units = 1
+debug = true
+debug-assertions = true
+lto = false
+opt-level = 0
+panic = "unwind"
+rpath = false
+
+[profile.release]
+debug = false
+debug-assertions = false
+lto = true
+opt-level = 3
+panic = "abort"
+rpath = false

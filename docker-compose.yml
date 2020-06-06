@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  changebot:
+    build: ./
+    networks:
+      - void
+    expose:
+      - 3000
+    environment:
+      - TELEGRAM_BOT_TOKEN=30XXXXXXX:AAXXXXXXXXXXXXXXXXXXX_TXXXX
+      - SPOTFIY_ROOT_TOKEN=XXXXXXXXXXXXXXX-XXXXXXXXXXXXXXX-XXXXXXXXXXXXXXX_XXXXXXXXXXXXXXX
+      - SPOTFIY_USER=2o7pgXXXXXXXXXXXXXXXX8geg
+      - SPOTFIY_PLAYLIST=4EcXXXXXXXXXXXXXXXXXKj
+      - SPOTIFY_CLIENT_ID=18a7XXXXXXXXXXXXXXXXXXXXXXXXXc33
+      - SPOTIFY_CLIENT_SECRET=7caXXXXXXXXXXXXXXXXXXXXXXXXX
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 200000
+        hard: 200000
+
+networks:
+  void:
+    ipam:
+      driver: default
+      config:
+        - subnet: 3.9.0.0/16
+          ip_range: 3.9.6.0/24
+          gateway: 3.9.6.254
+
